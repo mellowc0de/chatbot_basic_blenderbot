@@ -1,5 +1,14 @@
 ### chatbot_basic_blenderbot
 
+#### Setting up the Virtualenv
+
+```python
+
+pip3 install virtualenv
+virtualenv my_env
+source my_env/bin/activate
+```
+
 #### Installing Required Packages
 
 ```python
