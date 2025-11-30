@@ -1,0 +1,122 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "AutoModelForSeq2SeqLM",
+        "importPath": "transformers",
+        "description": "transformers",
+        "isExtraImport": true,
+        "detail": "transformers",
+        "documentation": {}
+    },
+    {
+        "label": "AutoTokenizer",
+        "importPath": "transformers",
+        "description": "transformers",
+        "isExtraImport": true,
+        "detail": "transformers",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "def home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])\ndef handle_prompt():\n    data = request.get_data(as_text=True)\n    data = json.loads(data)\n    input_text = data['prompt']\n    history_string = \"\\n\".join(conversation_history)\n    inputs = tokenizer.encode_plus(history_string, input_text, return_tensors=\"pt\")\n    tokenizer.pretrained_vocab_files_map",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_prompt",
+        "kind": 2,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "def handle_prompt():\n    data = request.get_data(as_text=True)\n    data = json.loads(data)\n    input_text = data['prompt']\n    history_string = \"\\n\".join(conversation_history)\n    inputs = tokenizer.encode_plus(history_string, input_text, return_tensors=\"pt\")\n    tokenizer.pretrained_vocab_files_map\n    outputs = model.generate(**inputs, max_length= 60)\n    response = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()\n    conversation_history.append(input_text)",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)\nmodel_name = \"facebook/blenderbot-400M-distill\"\nmodel = AutoModelForSeq2SeqLM.from_pretrained(model_name)\ntokenizer = AutoTokenizer.from_pretrained(model_name)\nconversation_history = []\n@app.route('/', methods=['GET'])\ndef home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "model_name",
+        "kind": 5,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "model_name = \"facebook/blenderbot-400M-distill\"\nmodel = AutoModelForSeq2SeqLM.from_pretrained(model_name)\ntokenizer = AutoTokenizer.from_pretrained(model_name)\nconversation_history = []\n@app.route('/', methods=['GET'])\ndef home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])\ndef handle_prompt():\n    data = request.get_data(as_text=True)",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "model = AutoModelForSeq2SeqLM.from_pretrained(model_name)\ntokenizer = AutoTokenizer.from_pretrained(model_name)\nconversation_history = []\n@app.route('/', methods=['GET'])\ndef home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])\ndef handle_prompt():\n    data = request.get_data(as_text=True)\n    data = json.loads(data)",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "tokenizer",
+        "kind": 5,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "tokenizer = AutoTokenizer.from_pretrained(model_name)\nconversation_history = []\n@app.route('/', methods=['GET'])\ndef home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])\ndef handle_prompt():\n    data = request.get_data(as_text=True)\n    data = json.loads(data)\n    input_text = data['prompt']",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_history",
+        "kind": 5,
+        "importPath": "LLM_application_chatbot.app",
+        "description": "LLM_application_chatbot.app",
+        "peekOfCode": "conversation_history = []\n@app.route('/', methods=['GET'])\ndef home():\n    return render_template('index.html')\n@app.route('/chatbot', methods=['POST'])\ndef handle_prompt():\n    data = request.get_data(as_text=True)\n    data = json.loads(data)\n    input_text = data['prompt']\n    history_string = \"\\n\".join(conversation_history)",
+        "detail": "LLM_application_chatbot.app",
+        "documentation": {}
+    }
+]

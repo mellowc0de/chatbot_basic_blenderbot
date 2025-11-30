@@ -3,10 +3,15 @@
 #### Setting up the Virtualenv
 
 ```python
-
+[ Linux ]
 pip3 install virtualenv
 virtualenv my_env
 source my_env/bin/activate
+
+[ Windows ]
+
+py -3.11 -m venv myenv
+myenv\Scripts\activate
 ```
 
 #### Installing Required Packages
