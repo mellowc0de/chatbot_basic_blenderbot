@@ -15,6 +15,8 @@ source my_env/bin/activate
 
 python3.11 -m pip install transformers==4.38.2
 python3.11 -m pip install torch==2.2.1
+python3.11 -m pip install flask
+python3.11 -m pip install flask_cors
 ```
 
 #### Adding Required Packages to the App
